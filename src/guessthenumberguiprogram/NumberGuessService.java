@@ -1,26 +1,47 @@
 package guessthenumberguiprogram;
 
+import java.util.Random;
+
 /**
  *
  * @author Emma Edgar
  */
 public class NumberGuessService {
 
-    private enum guessResult {HIGH, LOW, CORRECT};
-    private double guess;
+//    private enum guessResult {HIGH, LOW, CORRECT};
     
-    public double hi;
+    Random rnd = new Random();
+    private int num; 
+    private int guess;
     
-//    public String resultString(double num){
-//        if (num == guess) {
-//            return ("You guessed correctly");
-//        } else if (num.compareTo(guess) == -1) {
-//            return ("You guessed high");
-//        } else if (num.compareTo(guess) == 1) {
-//            return ("You guessed low");
-//        } else {
-//            lblResults.setText("Sorry, there was an error in the program");
-//        }
-//    }
+    public int getNum(){
+        return num;
+    }
+    
+    public int getGuess(){
+        return guess;
+    }
+    
+    public void setGuess(int guess){
+        //needs validation
+        this.guess = guess;
+    }
+    public NumberGuessService(){
+        num = new Integer(rnd.nextInt(9) + 1);
+    }
+    
+    
+    public String resultString(double guess){
+        System.out.println("num: " + num + " guess: " + guess);
+        if (num > guess) {
+            return ("You guessed low");
+        } else if (num == guess) {
+            return ("You guessed correctly");
+        } else if (num < guess) {
+            return ("You guessed high");
+        } else {
+            return ("Sorry, there was an error in the program");
+        }
+    }
             
 }

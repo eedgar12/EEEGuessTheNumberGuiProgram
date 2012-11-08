@@ -9,10 +9,13 @@ import java.util.Random;
  */
 public class MainGui extends javax.swing.JFrame {
 
-    int guess;
-    Random rnd = new Random();
-    Integer num = new Integer(rnd.nextInt(9) + 1);
+//    int guess;
+//    Random rnd = new Random();
+//    Integer num = new Integer(rnd.nextInt(9) + 1);
 
+    NumberGuessService ngv = new NumberGuessService();
+    
+    
     /**
      * Creates new form MainGui
      */
@@ -76,20 +79,17 @@ public class MainGui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnGuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuessActionPerformed
-
+        
+//        System.out.println("num = " + ngv.getNum());
         //needs validation
-        guess = Integer.parseInt(txtGuess.getText());
-
-        if (num == guess) {
-            lblResults.setText("You guessed correctly");
-        } else if (num.compareTo(guess) == -1) {
-            lblResults.setText("You guessed high");
-        } else if (num.compareTo(guess) == 1) {
-            lblResults.setText("You guessed low");
-        } else {
-            lblResults.setText("Sorry, there was an error in the program");
-        }
+//        ngv.setGuess(Integer.parseInt(txtGuess.getText()));
+//        System.out.println("Guess: " + ngv.getGuess());
+        
+//        String results = ngv.resultString(ngv.getGuess());
+        
+        lblResults.setText(ngv.resultString(Integer.parseInt(txtGuess.getText())));
 
     }//GEN-LAST:event_btnGuessActionPerformed
 
