@@ -8,7 +8,6 @@ import java.util.Random;
  */
 public class NumberGuessService {
 
-//    private enum guessResult {HIGH, LOW, CORRECT};
     
     Random rnd = new Random();
     private int num; 
@@ -18,6 +17,10 @@ public class NumberGuessService {
         return num;
     }
     
+    public void setNum(int num){
+        //needs validation
+        this.num = num;
+    }
     public int getGuess(){
         return guess;
     }
@@ -26,19 +29,18 @@ public class NumberGuessService {
         //needs validation
         this.guess = guess;
     }
+    
     public NumberGuessService(){
         num = new Integer(rnd.nextInt(9) + 1);
     }
     
-    
     public String resultString(double guess){
-        System.out.println("num: " + num + " guess: " + guess);
         if (num > guess) {
-            return ("You guessed low");
+            return GuessEnum.LOW.toString();
         } else if (num == guess) {
-            return ("You guessed correctly");
+            return GuessEnum.CORRECT.toString();
         } else if (num < guess) {
-            return ("You guessed high");
+            return GuessEnum.HIGH.toString();
         } else {
             return ("Sorry, there was an error in the program");
         }

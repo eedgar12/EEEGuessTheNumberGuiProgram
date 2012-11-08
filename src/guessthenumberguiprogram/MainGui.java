@@ -8,13 +8,7 @@ import java.util.Random;
  * @author Toshiba laptop
  */
 public class MainGui extends javax.swing.JFrame {
-
-//    int guess;
-//    Random rnd = new Random();
-//    Integer num = new Integer(rnd.nextInt(9) + 1);
-
     NumberGuessService ngv = new NumberGuessService();
-    
     
     /**
      * Creates new form MainGui
@@ -82,12 +76,6 @@ public class MainGui extends javax.swing.JFrame {
     
     private void btnGuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuessActionPerformed
         
-//        System.out.println("num = " + ngv.getNum());
-        //needs validation
-//        ngv.setGuess(Integer.parseInt(txtGuess.getText()));
-//        System.out.println("Guess: " + ngv.getGuess());
-        
-//        String results = ngv.resultString(ngv.getGuess());
         
         lblResults.setText(ngv.resultString(Integer.parseInt(txtGuess.getText())));
 
